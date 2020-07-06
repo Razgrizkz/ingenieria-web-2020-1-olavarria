@@ -1,0 +1,8 @@
+<div id="categorias">
+  <h2>Categorías</h2>
+  <div *ngIf="error">{{error}}</div>
+	<div *ngIf="success">{{success}}</div>
+  <ul>
+    <li *ngFor="let item of categorias">{{item.idCategoria}} | {{item.titulo}} </li>
+  </ul>
+</div>
