@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `database`.`ElementoCarro` (
   `costo` INT UNSIGNED NOT NULL,
   `agregadoen` DATETIME NOT NULL,
   `idProducto` INT UNSIGNED NOT NULL,
-  `idUsuario` INT UNSIGNED NOT NULL,
+  `idUsuario` INT UNSIGNED NULL,
   PRIMARY KEY (`idElementoCarro`),
   CONSTRAINT `usuario`
     FOREIGN KEY (`idUsuario`)

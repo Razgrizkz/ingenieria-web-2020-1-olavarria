@@ -4,4 +4,8 @@ export interface Producto {
 	stock: number;
 	autor: string;
 	precio: number;
+	descuento: number;
+	peso: number;
+	codigo: number;
+	idCategoria: number;
 }

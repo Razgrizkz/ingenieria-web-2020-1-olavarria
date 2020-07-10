@@ -1,0 +1,77 @@
+<div class="container">
+	<nav>
+  	<ol class="breadcrumb">
+  	  <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+  	  <li class="breadcrumb-item"><a routerLink="/buscar">Productos</a></li>
+  	  <li class="breadcrumb-item active">{{producto.titulo}}</li>
+  	</ol>
+	</nav>
+	<div class="row">
+		<div class="col-lg-3">
+			<img class="card-img-top img-fluid mt-4 mb-2" src="http://placehold.it/900x800" alt="">
+		</div>
+		<div class="col-lg-9">
+			<div class="card mt-4" *ngIf="producto">
+        <div class="card-body">
+          <h3 class="card-title">{{producto.titulo}}</h3>
+          <h3 class="card-title text-muted">{{producto.autor}}</h3>
+          <h4>${{producto.precio}}</h4>
+          <p class="card-text">Stock: {{producto.stock}} unidades.</p>
+          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+          4.0 stars
+          <button class="btn btn-success float-right">Añadir al Carrito</button>
+        </div>
+      </div>
+      <!-- /.card -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3"></div>
+		<div class="col">
+			<div class="card card-outline-secondary my-4">
+         <div class="card-header">
+           Reseñas de este producto
+         </div>
+          <div class="card-body">
+            <p></p>
+            <small class="text-muted">Publicado por Anónimo el 7/07/20</small>
+            <hr>
+            <p></p>
+            <small class="text-muted">Publicado por Anónimo el 7/07/20</small>
+            <hr>
+            <p></p>
+            <small class="text-muted">Publicado por Anónimo el 7/07/20</small>
+          </div>
+        </div>
+        <!-- /.card -->
+			<form>
+				<div class="row">
+  				<div class="form-group col">
+  					<label>Nombre de Usuario</label>
+    				<input type="email" class="form-control" placeholder="Anónimo">
+  				</div>
+  				<div class="form-group col">
+    				<label>Correo Electrónico</label>
+    				<input type="email" class="form-control" placeholder="nombre@ejemplo.com">
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="form-group col">
+    				<label>Calificación</label>
+    				<select class="form-control">
+    				  <option>1</option>
+    				  <option>2</option>
+    				  <option>3</option>
+    				  <option>4</option>
+    				  <option>5</option>
+    				</select>
+  				</div>
+  				<div class="form-group col">
+    				<label>Comentario</label>
+    				<textarea class="form-control" rows="1"></textarea>
+  				</div>
+  			</div>
+			</form>
+		</div>
+	</div>
+</div>

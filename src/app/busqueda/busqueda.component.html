@@ -1,1 +1,38 @@
-<p>busqueda works!</p>
+<div class="container">
+	<div class="row input-group col breadcrumb">
+		<label class="form-control col-lg-2">Buscar por:</label>
+		<select class="form-control col-lg-2" [(ngModel)]="tipo">
+  		<option>{{tipos[0]}}</option>
+  		<option>{{tipos[1]}}</option>
+  		<option>{{tipos[2]}}</option>
+  		<option>{{tipos[3]}}</option>
+		</select>
+		<input type="text" class="form-control col mx-1" [(ngModel)]="busqueda"/>
+		<button class="btn btn-dark mx-1"(click)="searchProductos(tipo,busqueda)">Buscar</button>
+	</div>
+</div>
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+    <li class="breadcrumb-item active">Productos</li>
+  </ol>
+</nav>
+<div class="row">
+	<app-categoria></app-categoria>
+  <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of productos" (click)="onSelect(item)">
+    <div class="card h-100">
+      <a routerLink="/producto/{{item.idProducto}}"><img class="card-img-top" src="" alt=""></a>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a routerLink="/producto/{{item.idProducto}}">{{item.titulo}}</a>
+        </h4>
+        <h5>{{item.autor}}</h5>
+        <h5>${{item.precio}}</h5>
+        <p class="card-text">{{item.descripcion}}</p>
+      </div>
+      <div class="card-footer">
+        Stock: {{item.stock}}
+      </div>
+    </div>
+  </div>
+</div>

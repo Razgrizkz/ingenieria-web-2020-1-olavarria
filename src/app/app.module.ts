@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { ProductoComponent } from './producto/producto.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductoComponent,
     BusquedaComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,

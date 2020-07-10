@@ -1,0 +1,11 @@
+<div id="carrito">
+  <h2>Carrito</h2>
+	<div class="list-group col">
+		<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">{{error}}</div>
+		<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="success">{{success}}</div>
+  	<div *ngFor="let item of carrito">
+  		<a class="list-group-item">{{item.titulo}} | {{item.precio}} | {{ item.cantidad }}</a>
+  	</div>
+	</div>
+	<button class="btn btn-success">Comprar</button>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Producto } from 'src/app/producto';
 import { ProductoService } from 'src/app/producto.service';
 
@@ -9,24 +10,32 @@ import { ProductoService } from 'src/app/producto.service';
 })
 
 export class ProductoComponent implements OnInit {
-	productos: Producto[];
+	producto: Producto;
   error = '';
   success = '';	
 
-  constructor(private productoService: ProductoService) { }
+  constructor(
+  	private productoService: ProductoService,
+  	private route: ActivatedRoute
+  	) { }
 
   ngOnInit() {
-  	this.getProductos();
+  	this.getProducto(this.producto);
   }
 
-  getProductos(): void {
-  	this.productoService.getAll().subscribe(
-  		(res: Producto[]) => {
-  			this.productos = res;
+  getProducto(productos: Producto): void {
+  	const id = +this.route.snapshot.paramMap.get('id');
+  	this.productoService.get(id).subscribe(
+  		(res: Producto) => {
+  			this.producto = res;
   		},
   		(err) => {
   			this.error = err;
   		}
   	);
+  };
+
+  addToCart(id: number, qty: number): void {
+  	this.productoService.addToCart(id, qty);
   }
 }

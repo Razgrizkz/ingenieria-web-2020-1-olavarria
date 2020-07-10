@@ -1,15 +1,15 @@
 import { NgModule             } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent         } from './app.component';
 import { ProductoComponent    } from './producto/producto.component';
 import { CategoriaComponent   } from './categoria/categoria.component';
 import { BusquedaComponent    } from './busqueda/busqueda.component';
+import { CarritoComponent     } from './carrito/carrito.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/index', pathMatch: 'full'   },
-	{ path: 'producto/:id', component: ProductoComponent  },
-	{ path: 'categorias',   component: CategoriaComponent },
-	{ path: 'buscar',       component: BusquedaComponent  }
+	{ path: 'producto/:id',   component: ProductoComponent  },
+	{ path: 'buscar',         component: BusquedaComponent  },
+	{ path: 'categorias',     component: CategoriaComponent },
+	{ path: 'carrito',          component: CarritoComponent   }
 ];
 
 @NgModule({
