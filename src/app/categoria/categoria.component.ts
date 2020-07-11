@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Categoria } from 'src/app/categoria';
 import { CategoriaService } from 'src/app/categoria.service';
+import { ProductoService } from 'src/app/producto.service';
 
 @Component({
   selector: 'app-categoria',
@@ -12,6 +13,8 @@ export class CategoriaComponent implements OnInit {
 	categorias: Categoria[];
 	error = '';
 	success = '';
+
+	@Output() dataEvent = new EventEmitter<string>();
 
   constructor(private categoriaService: CategoriaService) { }
 
@@ -28,5 +31,9 @@ export class CategoriaComponent implements OnInit {
   			this.error = err;
   		}
   	);
+  }
+
+  onSelect(id: string) {
+  	this.dataEvent.emit(id)
   }
 }

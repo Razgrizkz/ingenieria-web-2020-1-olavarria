@@ -43,10 +43,12 @@ export class ProductoService {
     	catchError(this.handleError));
   };
 
-  addToCart(id: number, qty: number): Observable<Producto> {
-  	return this.http.post<Producto>(`${this.baseUrl}/addToCart`, {data: id, qty})
-  	.pipe(
-  		catchError(this.handleError)
+  addToCart(id: string, qty: string) {
+  	return this.http.post(
+  		`${this.baseUrl}/addToCart`, {id, qty})
+  	.subscribe((data) => {
+  			console.log(data[0])
+  		 	return data[0]}
   	);
   }
 

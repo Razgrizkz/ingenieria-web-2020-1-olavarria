@@ -18,9 +18,22 @@
           <h4>${{producto.precio}}</h4>
           <p class="card-text">Stock: {{producto.stock}} unidades.</p>
           <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-          4.0 stars
-          <button class="btn btn-success float-right">Añadir al Carrito</button>
-        </div>
+          4 stars
+					<div class="input-group my-2">
+						<label class="form-control col-lg-2">Cantidad</label>
+						<select class="form-control col-lg-2" [(ngModel)]="cantidad">
+  						<option>1</option>
+  						<option>2</option>
+  						<option>3</option>
+  						<option>4</option>
+  						<option>5</option>
+  						<option>6</option>
+  						<option>7</option>
+  						<option>8</option>
+						</select>
+						<button class="btn btn-success mx-2" (click)="addToCart(producto.idProducto, cantidad)">Añadir al Carrito</button>
+        	</div>
+      	</div>
       </div>
       <!-- /.card -->
 		</div>
@@ -44,34 +57,7 @@
           </div>
         </div>
         <!-- /.card -->
-			<form>
-				<div class="row">
-  				<div class="form-group col">
-  					<label>Nombre de Usuario</label>
-    				<input type="email" class="form-control" placeholder="Anónimo">
-  				</div>
-  				<div class="form-group col">
-    				<label>Correo Electrónico</label>
-    				<input type="email" class="form-control" placeholder="nombre@ejemplo.com">
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="form-group col">
-    				<label>Calificación</label>
-    				<select class="form-control">
-    				  <option>1</option>
-    				  <option>2</option>
-    				  <option>3</option>
-    				  <option>4</option>
-    				  <option>5</option>
-    				</select>
-  				</div>
-  				<div class="form-group col">
-    				<label>Comentario</label>
-    				<textarea class="form-control" rows="1"></textarea>
-  				</div>
-  			</div>
-			</form>
+      <app-comentario></app-comentario>
 		</div>
 	</div>
 </div>

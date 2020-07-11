@@ -8,8 +8,7 @@ import { CarritoComponent     } from './carrito/carrito.component';
 const routes: Routes = [
 	{ path: 'producto/:id',   component: ProductoComponent  },
 	{ path: 'buscar',         component: BusquedaComponent  },
-	{ path: 'categorias',     component: CategoriaComponent },
-	{ path: 'carrito',          component: CarritoComponent   }
+	{ path: 'carrito',        component: CarritoComponent   }
 ];
 
 @NgModule({

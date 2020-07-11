@@ -44,4 +44,8 @@ export class BusquedaComponent implements OnInit {
   		}
   	);
   }
+
+  recieveData(event) {
+  	this.searchProductos('idCategoria', event)
+  }
 }

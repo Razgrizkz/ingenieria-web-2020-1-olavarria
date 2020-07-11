@@ -3,7 +3,7 @@
 <div class="list-group col">
 	<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">{{error}}</div>
 	<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="success">{{success}}</div>
-  <div *ngFor="let item of categorias" (click)="onSelect(item,productos)">
+  <div *ngFor="let item of categorias" (click)="onSelect(item.idCategoria)">
   	<a class="list-group-item"><span class="badge badge-secondary">{{item.idCategoria}}</span> {{item.titulo}}</a>
   </div>
 	</div>

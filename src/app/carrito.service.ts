@@ -11,18 +11,28 @@ import { ItemCarrito } from './carrito';
 })
 export class CarritoService {
 	baseUrl = 'http://localhost/api';
-	categorias: ItemCarrito[];
+	carrito: ItemCarrito[];
 
 	constructor(private http: HttpClient) {}
 
 	getAll(): Observable<ItemCarrito[]> {
 		return this.http.get(`${this.baseUrl}/carrito`).pipe(
     	map((res) => {
-    		this.categorias = res['data'];
-    		return this.categorias;
+    		this.carrito = res['data'].length();
+    		return this.carrito;
     	}),
     	catchError(this.handleError));
   };
+
+  getNumber(): Observable<ItemCarrito[]> {
+    return this.http.get(`${this.baseUrl}/carrito`).pipe(
+      map((res) => {
+        this.carrito = res['data'];
+        return this.carrito;
+      }),
+      catchError(this.handleError));
+  };
+
   private handleError(error: HttpErrorResponse) {
   	console.log(error);
   	return throwError(error.message);

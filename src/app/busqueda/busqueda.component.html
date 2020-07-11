@@ -18,7 +18,7 @@
   </ol>
 </nav>
 <div class="row">
-	<app-categoria></app-categoria>
+	<app-categoria (dataEvent)='recieveData($event)'></app-categoria>
   <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of productos" (click)="onSelect(item)">
     <div class="card h-100">
       <a routerLink="/producto/{{item.idProducto}}"><img class="card-img-top" src="" alt=""></a>

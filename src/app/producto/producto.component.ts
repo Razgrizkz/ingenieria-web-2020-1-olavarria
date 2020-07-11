@@ -12,7 +12,8 @@ import { ProductoService } from 'src/app/producto.service';
 export class ProductoComponent implements OnInit {
 	producto: Producto;
   error = '';
-  success = '';	
+  success = '';
+  cantidad = '';
 
   constructor(
   	private productoService: ProductoService,
@@ -35,7 +36,8 @@ export class ProductoComponent implements OnInit {
   	);
   };
 
-  addToCart(id: number, qty: number): void {
-  	this.productoService.addToCart(id, qty);
+  addToCart(id: string, qty: string): void {
+  	if(this.productoService.addToCart(id, qty)){
+  	}
   }
 }
