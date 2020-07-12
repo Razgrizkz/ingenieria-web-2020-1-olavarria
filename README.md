@@ -14,6 +14,12 @@ Ejecutar `ng serve` para iniciar el servidor de desarrollo. Luego, acceder a `ht
 
 CarroCompras en /comprar dejó de funcionar a último momento.
 La notificación en la navbar sólo se actualiza al reingresar desde la barra de navegación del navegador, por tema del LazyLoad de Angular.
+Mejores productos sin terminar (falta la vista y la query en php).
+
+## Mejoras pensadas
+Permitir ingreso de usuarios, así como permitir administradores para ir agregando/modificando cosas de la página
+
+Mejoras en diseño, estructura de código más ordenada y mejor comunicación entre componentes
 
 
 
