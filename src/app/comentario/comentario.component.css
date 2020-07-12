@@ -1,0 +1,21 @@
+.star {
+  font-size: 1.5rem;
+  color: #EFF59A;
+}
+.filled {
+  color: #CFDE00;
+}
+
+.card {
+	border-color: #48622B;
+	border-radius: 5px;
+}
+.card-header {
+	background-color: #71833E;
+	color: white;
+}
+
+.card-body {
+	background-color: #E9FAC7;
+}
+

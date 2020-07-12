@@ -1,0 +1,11 @@
+<ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+  <ng-template ngbSlide *ngFor="let image of images">
+    <div class="picsum-img-wrapper">
+      <img [src]="image" alt="Random slide" width="1200" height="550">
+    </div>
+    <div class="carousel-caption">
+      <h3>Bienvenido a nuestra tienda de libros!</h3>
+      <p>Buscamos ofrecerte simplicidad y funcionalidad en la compra de tus libros favoritos. Si tienes sugerencias, no dudes en contactarnos!</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

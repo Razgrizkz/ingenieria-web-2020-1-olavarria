@@ -10,3 +10,10 @@ Ejecutar `ng serve` para iniciar el servidor de desarrollo. Luego, acceder a `ht
 
  Iniciar todos los servicios, verificar el archivo `api/connect.php` con los puertos correspondientes. Importar desde el servicio PHPMyAdmin la base de datos `api/database.sql`.
 
+# Detalles
+
+CarroCompras en /comprar dejó de funcionar a último momento.
+La notificación en la navbar sólo se actualiza al reingresar desde la barra de navegación del navegador, por tema del LazyLoad de Angular.
+
+
+

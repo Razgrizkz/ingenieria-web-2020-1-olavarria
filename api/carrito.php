@@ -14,7 +14,7 @@ if(mysqli_num_rows($result) > 0){
 
   $cr = 0;
   while($row = mysqli_fetch_assoc($result)){
-    $sqlp = "SELECT idProducto, titulo, precio, descuento, peso FROM `producto` WHERE idProducto = ".$row['idElementoCarro']."";
+    $sqlp = "SELECT idProducto, titulo, precio, descuento, peso FROM `producto` WHERE idProducto = ".$row['idProducto']."";
     $resultp = mysqli_query($connect,$sqlp);
     $rowp = mysqli_fetch_assoc($resultp);
     $carrito[$cr]['idElementoCarro'] = $row['idElementoCarro'];
@@ -31,7 +31,7 @@ if(mysqli_num_rows($result) > 0){
 
 } else {
 
-  http_response_code(404);
+  http_response_code(200);
 
 }
 

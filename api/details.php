@@ -4,7 +4,7 @@
  */
 require 'connect.php';
 
-$sql = "SELECT idProducto, titulo, stock, autor, precio, descuento, peso, codigo FROM `producto` WHERE idProducto = '".$_GET["id"]."'";
+$sql = "SELECT idProducto, titulo, stock, autor, imagen, precio, descuento, peso FROM `producto` WHERE idProducto = '".$_GET["id"]."'";
 
 $result = mysqli_query($connect,$sql);
 
@@ -18,10 +18,10 @@ if(mysqli_num_rows($result) > 0){
     $productos[$pr]['titulo'] = $row['titulo'];
     $productos[$pr]['stock'] = $row['stock'];
     $productos[$pr]['autor'] = $row['autor'];
+    $productos[$pr]['imagen'] = $row['imagen'];
     $productos[$pr]['precio'] = $row['precio'];
     $productos[$pr]['descuento'] = $row['descuento'];
     $productos[$pr]['peso'] = $row['peso'];
-    $productos[$pr]['codigo'] = $row['codigo'];
     $pr++;
   }
     
@@ -29,7 +29,7 @@ if(mysqli_num_rows($result) > 0){
 
 } else {
 
-  http_response_code(404);
+  http_response_code(200);
 
 }
 

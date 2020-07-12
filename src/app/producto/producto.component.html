@@ -8,7 +8,7 @@
 	</nav>
 	<div class="row">
 		<div class="col-lg-3">
-			<img class="card-img-top img-fluid mt-4 mb-2" src="http://placehold.it/900x800" alt="">
+			<img class="card-img-top img-fluid mt-4 mb-2" src="{{producto.imagen}}" alt="">
 		</div>
 		<div class="col-lg-9">
 			<div class="card mt-4" *ngIf="producto">
@@ -17,8 +17,7 @@
           <h3 class="card-title text-muted">{{producto.autor}}</h3>
           <h4>${{producto.precio}}</h4>
           <p class="card-text">Stock: {{producto.stock}} unidades.</p>
-          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-          4 stars
+          <p class="card-text">Calificación: {{producto.calificacion}}</p>
 					<div class="input-group my-2">
 						<label class="form-control col-lg-2">Cantidad</label>
 						<select class="form-control col-lg-2" [(ngModel)]="cantidad">
@@ -33,31 +32,12 @@
 						</select>
 						<button class="btn btn-success mx-2" (click)="addToCart(producto.idProducto, cantidad)">Añadir al Carrito</button>
         	</div>
+        	<div class="alert alert-danger" role="alert" *ngIf="error">{{error}}</div>
+        	<div class="alert alert-success" role="alert" *ngIf="success">{{success}}</div>
       	</div>
       </div>
       <!-- /.card -->
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-3"></div>
-		<div class="col">
-			<div class="card card-outline-secondary my-4">
-         <div class="card-header">
-           Reseñas de este producto
-         </div>
-          <div class="card-body">
-            <p></p>
-            <small class="text-muted">Publicado por Anónimo el 7/07/20</small>
-            <hr>
-            <p></p>
-            <small class="text-muted">Publicado por Anónimo el 7/07/20</small>
-            <hr>
-            <p></p>
-            <small class="text-muted">Publicado por Anónimo el 7/07/20</small>
-          </div>
-        </div>
-        <!-- /.card -->
-      <app-comentario></app-comentario>
-		</div>
-	</div>
+	<app-comentario></app-comentario>
 </div>

@@ -7,6 +7,7 @@ import { CarritoService } from 'src/app/carrito.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+	isMenuCollapsed = true;
 	title = "Ingeniería Web";
 	elementosCarrito;
 
@@ -21,4 +22,5 @@ export class AppComponent implements OnInit{
   	this.carritoService.getNumber().subscribe(
   		(res) => this.elementosCarrito = res.length);
   }
+  
 }

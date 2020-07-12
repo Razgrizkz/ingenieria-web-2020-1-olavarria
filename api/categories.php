@@ -5,7 +5,7 @@
 require 'connect.php';
     
 $categorias = [];
-$sql = "SELECT idCategoria, titulo, descripcion, imagen FROM `categoria`";
+$sql = "SELECT idCategoria, titulo FROM `categoria`";
 
 $result = mysqli_query($connect,$sql);
 
@@ -16,8 +16,6 @@ if(mysqli_num_rows($result) > 0)
   {
     $categorias[$cr]['idCategoria'] = $row['idCategoria'];
     $categorias[$cr]['titulo'] = $row['titulo'];
-    $categorias[$cr]['descripcion'] = $row['descripcion'];
-    $categorias[$cr]['imagen'] = $row['imagen'];
     $cr++;
   }
     
@@ -25,6 +23,6 @@ if(mysqli_num_rows($result) > 0)
 }
 else
 {
-  http_response_code(404);
+  http_response_code(200);
 }
 

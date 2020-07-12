@@ -1,6 +1,7 @@
 export interface Comentario {
 	idProducto: number,
 	calificacion: number,
-	comentario: number,
+	comentario: string,
 	publicadoen: string,
+	nombre: string 
 }

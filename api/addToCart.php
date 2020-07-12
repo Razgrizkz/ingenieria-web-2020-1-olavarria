@@ -1,6 +1,6 @@
 <?php
 /**
- * Returns the list of categories.
+ * Inserts into carrito.
  */
 require 'connect.php';
 

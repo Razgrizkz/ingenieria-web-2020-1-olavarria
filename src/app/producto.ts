@@ -3,9 +3,9 @@ export interface Producto {
 	titulo: string;
 	stock: number;
 	autor: string;
+	imagen: string;
 	precio: number;
 	descuento: number;
 	peso: number;
-	codigo: number;
 	idCategoria: number;
 }

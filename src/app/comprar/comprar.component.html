@@ -1,0 +1,74 @@
+<nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+    <li class="breadcrumb-item"><a routerLink="/carrito">Carro de Compras</a></li>
+    <li class="breadcrumb-item active">Checkout</li>
+  </ol>
+</nav>
+<div class="container">
+	<div class="row my-4">
+		<div class="col-md-8">
+				<form class="py-2">
+  				<div class="form-row">
+  				  <div class="form-group col-md-6">
+  				    <label>Nombre Completo</label>
+  				    <input type="email" class="form-control" [(ngModel)]="ticket.nombrec" required>
+  				  </div>
+  				  <div class="form-group col-md-6">
+  				    <label>Correo Electrónico</label>
+  				    <input type="password" class="form-control" [(ngModel)]="ticket.correo" required>
+  				  </div>
+  				</div>
+  				<div class="form-row">
+  					<div class="form-group col">
+  				  	<label>Dirección</label>
+  				  	<input type="text" class="form-control" [(ngModel)]="ticket.direccion" required>
+  					</div>
+  					<div class="form-group col-md-4">
+  				  	<label>Ciudad</label>
+  				    <input type="text" class="form-control" [(ngModel)]="ticket.ciudad" required>
+  				  </div>
+  				</div>
+  				<div class="form-row">
+  				   <div class="form-group col-md-4">
+  				  <label>Región</label>
+  				  <input type="text" class="form-control" [(ngModel)]="ticket.region" required>
+  					</div>
+  				  <div class="form-group col-md-4">
+  				    <label>Comuna</label>
+  				    <input type="text" class="form-control" [(ngModel)]="ticket.comuna" required>
+  				  </div>
+  				  <div class="form-group col-md-4">
+  				  	<label>Método de Pago</label>
+  				  	<select class="form-control" [(ngModel)]="ticket.tipodepago">
+  				  		<option>Tarjeta de Crédito</option>
+  				  		<option>Tarjeta de Débito</option>
+  				  		<option>WebPay</option>
+  				  	</select>
+  				  </div>
+  				</div>
+  				<button type="submit" class="btn btn-success float-right">Comprar</button>
+  				<button class="btn btn-info" routerLink="/carrito">Volver al Carrito</button>
+				</form>
+		</div>
+		<div class="card col-md-4">
+			<h4 class="my-3 text-center">Carro de Compras</h4>
+			<table class="table text-center" *ngIf="carrito">
+  		<thead>
+    		<tr>
+      		<th scope="col">Titulo</th>
+      		<th scope="col">Cantidad</th>
+      		<th scope="col">Total</th>
+    		</tr>
+  		</thead>
+  		<tbody *ngFor="let item of carrito">
+  			<tr>
+  				<td>{{item.titulo}}</td>
+  				<td>{{item.cantidad}}</td>
+  				<td>$ {{item.cantidad * (item.precio - (item.precio * (item.descuento * 0.01)))}}</td>
+  			</tr>
+  		</tbody>
+  	</table>
+		</div>
+	</div>
+</div>

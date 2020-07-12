@@ -18,11 +18,20 @@ export class CarritoService {
 	getAll(): Observable<ItemCarrito[]> {
 		return this.http.get(`${this.baseUrl}/carrito`).pipe(
     	map((res) => {
-    		this.carrito = res['data'].length();
+    		this.carrito = res['data'];
     		return this.carrito;
     	}),
     	catchError(this.handleError));
   };
+
+  getAllSimple(): Observable<ItemCarrito[]> {
+     return this.http.get(`${this.baseUrl}/carritosimple`).pipe(
+       map((res) => {
+         this.carrito = res['data'];
+         return this.carrito;
+       }),
+       catchError(this.handleError));
+  }
 
   getNumber(): Observable<ItemCarrito[]> {
     return this.http.get(`${this.baseUrl}/carrito`).pipe(
@@ -32,6 +41,13 @@ export class CarritoService {
       }),
       catchError(this.handleError));
   };
+
+  delProd(id: number) {
+    return this.http.delete(`${this.baseUrl}/delcarro?id=${id}`)
+    .subscribe((data) => {
+         return data[0]}
+    );
+  }
 
   private handleError(error: HttpErrorResponse) {
   	console.log(error);

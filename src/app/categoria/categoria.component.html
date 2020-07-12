@@ -1,6 +1,6 @@
-<div id="categorias">
-  <h2>Categorías</h2>
-<div class="list-group col">
+<div class="col categorias py-3">
+  <h2 class="text-center">Categorías</h2>
+<div class="list-group">
 	<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">{{error}}</div>
 	<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="success">{{success}}</div>
   <div *ngFor="let item of categorias" (click)="onSelect(item.idCategoria)">

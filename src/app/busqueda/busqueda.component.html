@@ -1,15 +1,13 @@
-<div class="container">
-	<div class="row input-group col breadcrumb">
-		<label class="form-control col-lg-2">Buscar por:</label>
-		<select class="form-control col-lg-2" [(ngModel)]="tipo">
-  		<option>{{tipos[0]}}</option>
-  		<option>{{tipos[1]}}</option>
-  		<option>{{tipos[2]}}</option>
-  		<option>{{tipos[3]}}</option>
-		</select>
-		<input type="text" class="form-control col mx-1" [(ngModel)]="busqueda"/>
-		<button class="btn btn-dark mx-1"(click)="searchProductos(tipo,busqueda)">Buscar</button>
-	</div>
+<div class="input-group col breadcrumb" ngbDropdown>
+	<label class="form-control col-lg-2">Buscar por:</label>
+	<select class="form-control col-lg-2" [(ngModel)]="tipo">
+  	<option>{{tipos[0]}}</option>
+  	<option>{{tipos[1]}}</option>
+  	<option>{{tipos[2]}}</option>
+  </select>
+	<input type="text" class="form-control col mx-1" [(ngModel)]="busqueda"/>
+	<button class="btn btn-outline-dark mx-1"(click)="searchProductos(tipo,busqueda)">Buscar</button>
+	<button class="btn btn-outline-primary mx-1" (click)="getProductos(productos)">Limpiar Filtros</button>
 </div>
 <nav>
   <ol class="breadcrumb">
@@ -19,9 +17,11 @@
 </nav>
 <div class="row">
 	<app-categoria (dataEvent)='recieveData($event)'></app-categoria>
+	<div class="alert alert-danger" role="alert" *ngIf="error">{{error}}</div>
+  <div class="alert alert-success" role="alert" *ngIf="success">{{success}}</div>
   <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of productos" (click)="onSelect(item)">
     <div class="card h-100">
-      <a routerLink="/producto/{{item.idProducto}}"><img class="card-img-top" src="" alt=""></a>
+      <a routerLink="/producto/{{item.idProducto}}"><img class="card-img-top" src="{{item.imagen}}" alt=""height="400"></a>
       <div class="card-body">
         <h4 class="card-title">
           <a routerLink="/producto/{{item.idProducto}}">{{item.titulo}}</a>

@@ -15,7 +15,7 @@ export class BusquedaComponent implements OnInit {
 	productos: Producto[];
 	busqueda = '';
 	tipo = '';
-	tipos = ['idCategoria', 'titulo', 'autor', 'codigo'];
+	tipos = ['titulo', 'autor', 'idProducto'];
 
   constructor(private productoService: ProductoService) { }
 
@@ -26,7 +26,7 @@ export class BusquedaComponent implements OnInit {
   getProductos(productos: Producto[]): void {
   	this.productoService.searchAll().subscribe(
   		(res: Producto[]) => {
-  			this.productos = res;
+  			 	this.productos = res;
   		},
   		(err) => {
   			this.error = err;
@@ -40,7 +40,18 @@ export class BusquedaComponent implements OnInit {
   			this.productos = res;
   		},
   		(err) => {
-  			this.error = err;
+  			if(err == "res is null") {
+  				this.error = 'No se encontraron resultados.';
+  				this.productos = [];
+  				setTimeout(() => {
+  					this.error = '';
+  				}, 5000)
+  			} else {
+  				this.error = err;
+  				setTimeout(() => {
+  					this.error = '';
+  				}, 5000)
+  			}
   		}
   	);
   }

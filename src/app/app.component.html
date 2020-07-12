@@ -19,19 +19,22 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" routerLink="/">Ingeniería Web</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-1">
-            <a class="nav-link" routerLink="/">Inicio</a>
+            <a class="nav-link text-center" routerLink="/" (click)="isMenuCollapsed = true">Inicio</a>
           </li>
           <li class="nav-item mx-1">
-            <a class="nav-link" routerLink="/buscar">Productos</a>
+            <a class="nav-link text-center" routerLink="/buscar" (click)="isMenuCollapsed = true">Productos</a>
           </li>
           <li class="nav-item mx-1">
-            <a class="nav-link" routerLink="/carrito">Carro de Compras <span class="badge badge-pill badge-secondary">{{elementosCarrito}}</span></a>
+            <a class="nav-link text-center" routerLink="/carrito" (click)="isMenuCollapsed = true">Carro de Compras <span class="badge badge-pill badge-danger">{{elementosCarrito}}</span></a>
+          </li>
+          <li class="nav-item mx-1">
+            <a class="nav-link text-center" routerLink="/contacto">Contacto</a>
           </li>
         </ul>
       </div>
@@ -40,15 +43,4 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
-  <!-- Footer -->
-  <footer class="py-4 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Ingeniería Web 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-    <!-- Bootstrap core JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>

@@ -37,7 +37,18 @@ export class ProductoComponent implements OnInit {
   };
 
   addToCart(id: string, qty: string): void {
-  	if(this.productoService.addToCart(id, qty)){
+  	if(qty == '') {
+  		this.error = 'Debes seleccionar la cantidad de libros que vas a comprar.';
+  		setTimeout(() => {
+  			this.error = '';
+  		}, 5000)
+  	} else {
+  		if(this.productoService.addToCart(id, qty)){
+  			this.success = 'Producto añadido al carro!';
+  			setTimeout(() => {
+  				this.success = '';
+  			}, 5000)
+  		}
   	}
   }
 }

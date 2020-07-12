@@ -3,7 +3,8 @@
 	<div class="list-group">
 		<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">{{error}}</div>
 		<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="success">{{success}}</div>
-		<table class="table table-striped table-bordered text-center">
+    <div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="info">{{info}}</div>
+		<table class="table table-bordered text-center" *ngIf="carrito">
   		<thead class="thead-dark">
     		<tr>
       		<th scope="col">Titulo</th>
@@ -11,6 +12,7 @@
       		<th scope="col">Precio</th>
       		<th scope="col">Descuento</th>
       		<th scope="col">Total</th>
+          <th></th>
     		</tr>
   		</thead>
   		<tbody *ngFor="let item of carrito">
@@ -20,9 +22,10 @@
   				<td>{{item.precio}}</td>
   				<td>{{item.descuento}} %</td>
   				<td>{{item.cantidad * (item.precio - (item.precio * (item.descuento * 0.01)))}}</td>
+          <td><button class="btn btn-danger" (click)="deleteProducto(item.idProducto)">Borrar</button></td>
   			</tr>
   		</tbody>
   	</table>
 	</div>
-	<button class="btn btn-success float-right">Comprar</button>
+	<button class="btn btn-success float-right" *ngIf="carrito" routerLink="/comprar">Ir a Checkout</button>
 </div>

@@ -10,6 +10,10 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ComentarioComponent } from './comentario/comentario.component';
+import { ComprarComponent } from './comprar/comprar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './contact/contact.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,16 @@ import { ComentarioComponent } from './comentario/comentario.component';
     CategoriaComponent,
     CarritoComponent,
     ComentarioComponent,
+    ComprarComponent,
+    ContactComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
